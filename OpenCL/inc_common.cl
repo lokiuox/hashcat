@@ -68812,22 +68812,22 @@ DECLSPEC void salt_encode_utf16le_swap (const u32 *salt_buf, u32x *s, const u32 
     s1[3] = salt_buf[idx + 7];
     make_utf16le (s1, s2, s3);
     make_utf16le (s0, s0, s1);
-    s[2 * idx +  0] = hc_swap32_S (s0[0]);
-    s[2 * idx +  1] = hc_swap32_S (s0[1]);
-    s[2 * idx +  2] = hc_swap32_S (s0[2]);
-    s[2 * idx +  3] = hc_swap32_S (s0[3]);
-    s[2 * idx +  4] = hc_swap32_S (s1[0]);
-    s[2 * idx +  5] = hc_swap32_S (s1[1]);
-    s[2 * idx +  6] = hc_swap32_S (s1[2]);
-    s[2 * idx +  7] = hc_swap32_S (s1[3]);
-    s[2 * idx +  8] = hc_swap32_S (s2[0]);
-    s[2 * idx +  9] = hc_swap32_S (s2[1]);
-    s[2 * idx + 10] = hc_swap32_S (s2[2]);
-    s[2 * idx + 11] = hc_swap32_S (s2[3]);
-    s[2 * idx + 12] = hc_swap32_S (s3[0]);
-    s[2 * idx + 13] = hc_swap32_S (s3[1]);
-    s[2 * idx + 14] = hc_swap32_S (s3[2]);
-    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+    s[2 * idx +  0] = hc_swap32 (s0[0]);
+    s[2 * idx +  1] = hc_swap32 (s0[1]);
+    s[2 * idx +  2] = hc_swap32 (s0[2]);
+    s[2 * idx +  3] = hc_swap32 (s0[3]);
+    s[2 * idx +  4] = hc_swap32 (s1[0]);
+    s[2 * idx +  5] = hc_swap32 (s1[1]);
+    s[2 * idx +  6] = hc_swap32 (s1[2]);
+    s[2 * idx +  7] = hc_swap32 (s1[3]);
+    s[2 * idx +  8] = hc_swap32 (s2[0]);
+    s[2 * idx +  9] = hc_swap32 (s2[1]);
+    s[2 * idx + 10] = hc_swap32 (s2[2]);
+    s[2 * idx + 11] = hc_swap32 (s2[3]);
+    s[2 * idx + 12] = hc_swap32 (s3[0]);
+    s[2 * idx + 13] = hc_swap32 (s3[1]);
+    s[2 * idx + 14] = hc_swap32 (s3[2]);
+    s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
 DECLSPEC void salt_encode_utf16leN (const u32 *salt_buf, u32x *s, const u32 salt_len)
@@ -68887,22 +68887,22 @@ DECLSPEC void salt_encode_utf16leN_swap (const u32 *salt_buf, u32x *s, const u32
     s1[3] = salt_buf[idx + 7];
     make_utf16leN (s1, s2, s3);
     make_utf16leN (s0, s0, s1);
-    s[2 * idx +  0] = hc_swap32_S (s0[0]);
-    s[2 * idx +  1] = hc_swap32_S (s0[1]);
-    s[2 * idx +  2] = hc_swap32_S (s0[2]);
-    s[2 * idx +  3] = hc_swap32_S (s0[3]);
-    s[2 * idx +  4] = hc_swap32_S (s1[0]);
-    s[2 * idx +  5] = hc_swap32_S (s1[1]);
-    s[2 * idx +  6] = hc_swap32_S (s1[2]);
-    s[2 * idx +  7] = hc_swap32_S (s1[3]);
-    s[2 * idx +  8] = hc_swap32_S (s2[0]);
-    s[2 * idx +  9] = hc_swap32_S (s2[1]);
-    s[2 * idx + 10] = hc_swap32_S (s2[2]);
-    s[2 * idx + 11] = hc_swap32_S (s2[3]);
-    s[2 * idx + 12] = hc_swap32_S (s3[0]);
-    s[2 * idx + 13] = hc_swap32_S (s3[1]);
-    s[2 * idx + 14] = hc_swap32_S (s3[2]);
-    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+    s[2 * idx +  0] = hc_swap32 (s0[0]);
+    s[2 * idx +  1] = hc_swap32 (s0[1]);
+    s[2 * idx +  2] = hc_swap32 (s0[2]);
+    s[2 * idx +  3] = hc_swap32 (s0[3]);
+    s[2 * idx +  4] = hc_swap32 (s1[0]);
+    s[2 * idx +  5] = hc_swap32 (s1[1]);
+    s[2 * idx +  6] = hc_swap32 (s1[2]);
+    s[2 * idx +  7] = hc_swap32 (s1[3]);
+    s[2 * idx +  8] = hc_swap32 (s2[0]);
+    s[2 * idx +  9] = hc_swap32 (s2[1]);
+    s[2 * idx + 10] = hc_swap32 (s2[2]);
+    s[2 * idx + 11] = hc_swap32 (s2[3]);
+    s[2 * idx + 12] = hc_swap32 (s3[0]);
+    s[2 * idx + 13] = hc_swap32 (s3[1]);
+    s[2 * idx + 14] = hc_swap32 (s3[2]);
+    s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
 DECLSPEC void salt_encode_utf16le_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
@@ -69040,22 +69040,22 @@ DECLSPEC void salt_encode_utf16be_swap (const u32 *salt_buf, u32x *s, const u32 
     s1[3] = salt_buf[idx + 7];
     make_utf16be (s1, s2, s3);
     make_utf16be (s0, s0, s1);
-    s[2 * idx +  0] = hc_swap32_S (s0[0]);
-    s[2 * idx +  1] = hc_swap32_S (s0[1]);
-    s[2 * idx +  2] = hc_swap32_S (s0[2]);
-    s[2 * idx +  3] = hc_swap32_S (s0[3]);
-    s[2 * idx +  4] = hc_swap32_S (s1[0]);
-    s[2 * idx +  5] = hc_swap32_S (s1[1]);
-    s[2 * idx +  6] = hc_swap32_S (s1[2]);
-    s[2 * idx +  7] = hc_swap32_S (s1[3]);
-    s[2 * idx +  8] = hc_swap32_S (s2[0]);
-    s[2 * idx +  9] = hc_swap32_S (s2[1]);
-    s[2 * idx + 10] = hc_swap32_S (s2[2]);
-    s[2 * idx + 11] = hc_swap32_S (s2[3]);
-    s[2 * idx + 12] = hc_swap32_S (s3[0]);
-    s[2 * idx + 13] = hc_swap32_S (s3[1]);
-    s[2 * idx + 14] = hc_swap32_S (s3[2]);
-    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+    s[2 * idx +  0] = hc_swap32 (s0[0]);
+    s[2 * idx +  1] = hc_swap32 (s0[1]);
+    s[2 * idx +  2] = hc_swap32 (s0[2]);
+    s[2 * idx +  3] = hc_swap32 (s0[3]);
+    s[2 * idx +  4] = hc_swap32 (s1[0]);
+    s[2 * idx +  5] = hc_swap32 (s1[1]);
+    s[2 * idx +  6] = hc_swap32 (s1[2]);
+    s[2 * idx +  7] = hc_swap32 (s1[3]);
+    s[2 * idx +  8] = hc_swap32 (s2[0]);
+    s[2 * idx +  9] = hc_swap32 (s2[1]);
+    s[2 * idx + 10] = hc_swap32 (s2[2]);
+    s[2 * idx + 11] = hc_swap32 (s2[3]);
+    s[2 * idx + 12] = hc_swap32 (s3[0]);
+    s[2 * idx + 13] = hc_swap32 (s3[1]);
+    s[2 * idx + 14] = hc_swap32 (s3[2]);
+    s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
 DECLSPEC void salt_encode_utf16beN (const u32 *salt_buf, u32x *s, const u32 salt_len)
@@ -69115,22 +69115,22 @@ DECLSPEC void salt_encode_utf16beN_swap (const u32 *salt_buf, u32x *s, const u32
     s1[3] = salt_buf[idx + 7];
     make_utf16beN (s1, s2, s3);
     make_utf16beN (s0, s0, s1);
-    s[2 * idx +  0] = hc_swap32_S (s0[0]);
-    s[2 * idx +  1] = hc_swap32_S (s0[1]);
-    s[2 * idx +  2] = hc_swap32_S (s0[2]);
-    s[2 * idx +  3] = hc_swap32_S (s0[3]);
-    s[2 * idx +  4] = hc_swap32_S (s1[0]);
-    s[2 * idx +  5] = hc_swap32_S (s1[1]);
-    s[2 * idx +  6] = hc_swap32_S (s1[2]);
-    s[2 * idx +  7] = hc_swap32_S (s1[3]);
-    s[2 * idx +  8] = hc_swap32_S (s2[0]);
-    s[2 * idx +  9] = hc_swap32_S (s2[1]);
-    s[2 * idx + 10] = hc_swap32_S (s2[2]);
-    s[2 * idx + 11] = hc_swap32_S (s2[3]);
-    s[2 * idx + 12] = hc_swap32_S (s3[0]);
-    s[2 * idx + 13] = hc_swap32_S (s3[1]);
-    s[2 * idx + 14] = hc_swap32_S (s3[2]);
-    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+    s[2 * idx +  0] = hc_swap32 (s0[0]);
+    s[2 * idx +  1] = hc_swap32 (s0[1]);
+    s[2 * idx +  2] = hc_swap32 (s0[2]);
+    s[2 * idx +  3] = hc_swap32 (s0[3]);
+    s[2 * idx +  4] = hc_swap32 (s1[0]);
+    s[2 * idx +  5] = hc_swap32 (s1[1]);
+    s[2 * idx +  6] = hc_swap32 (s1[2]);
+    s[2 * idx +  7] = hc_swap32 (s1[3]);
+    s[2 * idx +  8] = hc_swap32 (s2[0]);
+    s[2 * idx +  9] = hc_swap32 (s2[1]);
+    s[2 * idx + 10] = hc_swap32 (s2[2]);
+    s[2 * idx + 11] = hc_swap32 (s2[3]);
+    s[2 * idx + 12] = hc_swap32 (s3[0]);
+    s[2 * idx + 13] = hc_swap32 (s3[1]);
+    s[2 * idx + 14] = hc_swap32 (s3[2]);
+    s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
 DECLSPEC void salt_encode_utf16be_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
