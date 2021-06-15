@@ -68752,3 +68752,459 @@ DECLSPEC void append_0x80_4x4_VV (u32x *w0, u32x *w1, u32x *w2, u32x *w3, const 
 
   #endif
 }
+
+// utf16le encoding utils
+
+DECLSPEC void salt_encode_utf16le (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16le (s1, s2, s3);
+    make_utf16le (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16le_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16le (s1, s2, s3);
+    make_utf16le (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
+DECLSPEC void salt_encode_utf16leN (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16leN (s1, s2, s3);
+    make_utf16leN (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16leN_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16leN (s1, s2, s3);
+    make_utf16leN (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
+DECLSPEC void salt_encode_utf16le_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+{
+  u32 s0[4] = { 0 };
+  u32 s1[4] = { 0 };
+  u32 s2[4] = { 0 };
+  u32 s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16le_S (s1, s2, s3);
+    make_utf16le_S (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16le_swap_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+{
+  u32 s0[4] = { 0 };
+  u32 s1[4] = { 0 };
+  u32 s2[4] = { 0 };
+  u32 s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16le_S (s1, s2, s3);
+    make_utf16le_S (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
+
+// utf16be encoding utils
+
+DECLSPEC void salt_encode_utf16be (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16be (s1, s2, s3);
+    make_utf16be (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16be_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16be (s1, s2, s3);
+    make_utf16be (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
+DECLSPEC void salt_encode_utf16beN (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16beN (s1, s2, s3);
+    make_utf16beN (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16beN_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+{
+  u32x s0[4] = { 0 };
+  u32x s1[4] = { 0 };
+  u32x s2[4] = { 0 };
+  u32x s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16beN (s1, s2, s3);
+    make_utf16beN (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
+DECLSPEC void salt_encode_utf16be_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+{
+  u32 s0[4] = { 0 };
+  u32 s1[4] = { 0 };
+  u32 s2[4] = { 0 };
+  u32 s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16be_S (s1, s2, s3);
+    make_utf16be_S (s0, s0, s1);
+    s[2 * idx +  0] = s0[0];
+    s[2 * idx +  1] = s0[1];
+    s[2 * idx +  2] = s0[2];
+    s[2 * idx +  3] = s0[3];
+    s[2 * idx +  4] = s1[0];
+    s[2 * idx +  5] = s1[1];
+    s[2 * idx +  6] = s1[2];
+    s[2 * idx +  7] = s1[3];
+    s[2 * idx +  8] = s2[0];
+    s[2 * idx +  9] = s2[1];
+    s[2 * idx + 10] = s2[2];
+    s[2 * idx + 11] = s2[3];
+    s[2 * idx + 12] = s3[0];
+    s[2 * idx + 13] = s3[1];
+    s[2 * idx + 14] = s3[2];
+    s[2 * idx + 15] = s3[3];
+  }
+}
+
+DECLSPEC void salt_encode_utf16be_swap_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+{
+  u32 s0[4] = { 0 };
+  u32 s1[4] = { 0 };
+  u32 s2[4] = { 0 };
+  u32 s3[4] = { 0 };
+  
+  for (u32 i = 0, idx = 0; i < salt_len; i += 32, idx += 8)
+  {
+    s0[0] = salt_buf[idx + 0];
+    s0[1] = salt_buf[idx + 1];
+    s0[2] = salt_buf[idx + 2];
+    s0[3] = salt_buf[idx + 3];
+    s1[0] = salt_buf[idx + 4];
+    s1[1] = salt_buf[idx + 5];
+    s1[2] = salt_buf[idx + 6];
+    s1[3] = salt_buf[idx + 7];
+    make_utf16be_S (s1, s2, s3);
+    make_utf16be_S (s0, s0, s1);
+    s[2 * idx +  0] = hc_swap32_S (s0[0]);
+    s[2 * idx +  1] = hc_swap32_S (s0[1]);
+    s[2 * idx +  2] = hc_swap32_S (s0[2]);
+    s[2 * idx +  3] = hc_swap32_S (s0[3]);
+    s[2 * idx +  4] = hc_swap32_S (s1[0]);
+    s[2 * idx +  5] = hc_swap32_S (s1[1]);
+    s[2 * idx +  6] = hc_swap32_S (s1[2]);
+    s[2 * idx +  7] = hc_swap32_S (s1[3]);
+    s[2 * idx +  8] = hc_swap32_S (s2[0]);
+    s[2 * idx +  9] = hc_swap32_S (s2[1]);
+    s[2 * idx + 10] = hc_swap32_S (s2[2]);
+    s[2 * idx + 11] = hc_swap32_S (s2[3]);
+    s[2 * idx + 12] = hc_swap32_S (s3[0]);
+    s[2 * idx + 13] = hc_swap32_S (s3[1]);
+    s[2 * idx + 14] = hc_swap32_S (s3[2]);
+    s[2 * idx + 15] = hc_swap32_S (s3[3]);
+  }
+}
