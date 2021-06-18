@@ -115,7 +115,7 @@ KERNEL_FQ void m00135_sxx (KERN_ATTR_VECTOR ())
 
   u32x s[128] = { 0 };
 
-  salt_encode_utf16le_swap_S (salt_bufs[SALT_POS].salt_buf, s, salt_bufs[SALT_POS].salt_len);
+  salt_encode_utf16le_swap (salt_bufs[SALT_POS].salt_buf, s, salt_bufs[SALT_POS].salt_len);
 
   const u32 salt_len = salt_bufs[SALT_POS].salt_len * 2;
 

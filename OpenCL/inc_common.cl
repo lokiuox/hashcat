@@ -68755,7 +68755,7 @@ DECLSPEC void append_0x80_4x4_VV (u32x *w0, u32x *w1, u32x *w2, u32x *w3, const 
 
 // utf16le encoding utils
 
-DECLSPEC void salt_encode_utf16le (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16le (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -68793,7 +68793,7 @@ DECLSPEC void salt_encode_utf16le (const u32 *salt_buf, u32x *s, const u32 salt_
   }
 }
 
-DECLSPEC void salt_encode_utf16le_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16le_swap (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -68830,7 +68830,7 @@ DECLSPEC void salt_encode_utf16le_swap (const u32 *salt_buf, u32x *s, const u32 
     s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
-DECLSPEC void salt_encode_utf16leN (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16leN (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -68868,7 +68868,7 @@ DECLSPEC void salt_encode_utf16leN (const u32 *salt_buf, u32x *s, const u32 salt
   }
 }
 
-DECLSPEC void salt_encode_utf16leN_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16leN_swap (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -68905,7 +68905,7 @@ DECLSPEC void salt_encode_utf16leN_swap (const u32 *salt_buf, u32x *s, const u32
     s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
-DECLSPEC void salt_encode_utf16le_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16le_S (const GLOBAL_AS u32 *salt_buf, u32 *s, const u32 salt_len)
 {
   u32 s0[4] = { 0 };
   u32 s1[4] = { 0 };
@@ -68943,7 +68943,7 @@ DECLSPEC void salt_encode_utf16le_S (const u32 *salt_buf, u32 *s, const u32 salt
   }
 }
 
-DECLSPEC void salt_encode_utf16le_swap_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16le_swap_S (const GLOBAL_AS u32 *salt_buf, u32 *s, const u32 salt_len)
 {
   u32 s0[4] = { 0 };
   u32 s1[4] = { 0 };
@@ -68983,7 +68983,7 @@ DECLSPEC void salt_encode_utf16le_swap_S (const u32 *salt_buf, u32 *s, const u32
 
 // utf16be encoding utils
 
-DECLSPEC void salt_encode_utf16be (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16be (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -69021,7 +69021,7 @@ DECLSPEC void salt_encode_utf16be (const u32 *salt_buf, u32x *s, const u32 salt_
   }
 }
 
-DECLSPEC void salt_encode_utf16be_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16be_swap (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -69058,7 +69058,7 @@ DECLSPEC void salt_encode_utf16be_swap (const u32 *salt_buf, u32x *s, const u32 
     s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
-DECLSPEC void salt_encode_utf16beN (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16beN (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -69096,7 +69096,7 @@ DECLSPEC void salt_encode_utf16beN (const u32 *salt_buf, u32x *s, const u32 salt
   }
 }
 
-DECLSPEC void salt_encode_utf16beN_swap (const u32 *salt_buf, u32x *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16beN_swap (const GLOBAL_AS u32 *salt_buf, u32x *s, const u32 salt_len)
 {
   u32x s0[4] = { 0 };
   u32x s1[4] = { 0 };
@@ -69133,7 +69133,7 @@ DECLSPEC void salt_encode_utf16beN_swap (const u32 *salt_buf, u32x *s, const u32
     s[2 * idx + 15] = hc_swap32 (s3[3]);
   }
 }
-DECLSPEC void salt_encode_utf16be_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16be_S (const GLOBAL_AS u32 *salt_buf, u32 *s, const u32 salt_len)
 {
   u32 s0[4] = { 0 };
   u32 s1[4] = { 0 };
@@ -69171,7 +69171,7 @@ DECLSPEC void salt_encode_utf16be_S (const u32 *salt_buf, u32 *s, const u32 salt
   }
 }
 
-DECLSPEC void salt_encode_utf16be_swap_S (const u32 *salt_buf, u32 *s, const u32 salt_len)
+DECLSPEC void salt_encode_utf16be_swap_S (const GLOBAL_AS u32 *salt_buf, u32 *s, const u32 salt_len)
 {
   u32 s0[4] = { 0 };
   u32 s1[4] = { 0 };
